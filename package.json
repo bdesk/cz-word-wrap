@@ -1,0 +1,17 @@
+{
+  "name": "cztext",
+  "version": "1.0.0",
+  "description": "Grammar plugin for Czech to wrap words",
+  "main": "jquery.czText.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Czech",
+    "Grammar",
+    "wrap",
+    "words"
+  ],
+  "author": "Giorgi Keshikashvili",
+  "license": "MIT"
+}
