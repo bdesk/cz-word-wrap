@@ -24,4 +24,12 @@ The Czech language has special rules to wrap words in copy text, so that single 
 ```
 ### Initialize plugin ###
 
-``$(document).ready(function () {$('p').czText();});``
+```
+$(document).ready(function () {
+    $('p').czText();
+    window.onresize = function () {
+      $('p').czText('refresh');
+    };
+});
+```
+

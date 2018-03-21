@@ -11,7 +11,7 @@
         this.excluded = false;
 
         this.init();
-        this.initFixOnResize();
+        // this.initFixOnResize();
     };
 
     CzText.DEFAULTS = {
@@ -26,21 +26,19 @@
                 this.element.attr(this.options.elementHtmlAttributeName, this.html)
             } else {
                 this.html = this.element.attr(this.options.elementHtmlAttributeName);
+                this.element.html(this.html);
             }
             words = this.html.split(' ');
             this.element.html(words[0]);
-
             this.html = this.element.html();
+
             for (var i = 1; i < words.length; i++) {
                 this.processText(words, i);
             }
         },
 
-        initFixOnResize: function () {
-            var me = this;
-            window.onresize = function () {
-                me.init();
-            };
+        refresh: function () {
+            this.init();
         },
 
         /**
@@ -52,7 +50,9 @@
             var lastWord = words[i - 1];
             var lastLastWord = words[i - 2];
             var height = this.element.height();
-
+            if(currentWord.length === 0){
+                return;
+            }
             this.html += ' ' + currentWord;
             this.element.html(this.html);
 
@@ -116,9 +116,12 @@
 
 
     $.fn.czText = function (option) {
-        this.each(function () {
+       return this.each(function () {
+            var $this   = $(this);
+            var data    = $this.data('cz-textWrap');
             var options = $.extend({}, CzText.DEFAULTS, option);
-            new CzText(this, options);
+            if (!data) $this.data('cz-textWrap', (data = new CzText(this, options)));
+            if (typeof option == 'string') data[option]()
         });
     }
 
