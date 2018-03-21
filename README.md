@@ -11,13 +11,13 @@ The Czech language has special rules to wrap words in copy text, so that single 
 ```<!DOCTYPE html>
 <html>
    <head>
-      <!--Include this css file in the <head> tag -->
+     
    </head>
    
    <body>
-      ...
-      <!--Include these script files in the <head> or <body> tag-->
-      <script src="lib/jquery.1.11.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+                  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                  crossorigin="anonymous"></script>
       <script src="jquery.czText.js"></script>
    </body>
 </html>
