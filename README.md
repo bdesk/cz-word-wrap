@@ -1,11 +1,14 @@
 # cz-word-wrap
 Grammar extension for Czech to wrap words
 
-== Installation and dependecies ==
+## Description ##
+The Czech language has special rules to wrap words in copy text, so that single characters or numbers at the end of a line should be moved to the next line for better reading experience. We create a JavaScript extension, that apply those rules and formats the copy text on the website. 
 
-Include necessary css/js files
+## Installation and dependecies ##
 
-<!DOCTYPE html>
+### Include necessary js files ###
+
+```<!DOCTYPE html>
 <html>
    <head>
       <!--Include this css file in the <head> tag -->
@@ -18,3 +21,7 @@ Include necessary css/js files
       <script src="jquery.czText.js"></script>
    </body>
 </html>
+```
+### Initialize plugin ###
+
+``$(document).ready(function () {$('p').czText();});``
