@@ -7,7 +7,7 @@
     var CzText = function (element, options) {
         this.element = $(element);
         this.options = $.extend({}, CzText.DEFAULTS, options);
-        this.html = this.element.html().replace(/<br\s*\/?>/gi, ' ');
+        this.html = this.element.html();
         this.excluded = false;
 
         this.init();
