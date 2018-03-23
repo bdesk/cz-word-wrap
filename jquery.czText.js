@@ -28,12 +28,23 @@
                 this.html = this.element.attr(this.options.elementHtmlAttributeName);
                 this.element.html(this.html);
             }
-            words = this.html.split(' ');
-            this.element.html(words[0]);
-            this.html = this.element.html();
+            words = this.html.trim().split(' ');
+            var index = 0;
+            if(words[index].indexOf('<') === 0){
+                this.html = words[0];
+                for (index; index < words.length; index++) {
+                    this.html = this.html + ' ' + words[index];
+                    if(words[index].indexOf('</') !== -1) break;
+                }
+                this.element.html(this.html);
+            }else{
+                this.element.html(words[index]);
+            }
 
-            for (var i = 1; i < words.length; i++) {
-                this.processText(words, i);
+            this.html = this.element.html();
+            index++;
+            for (index; index < words.length; index++) {
+                this.processText(words, index);
             }
         },
 
