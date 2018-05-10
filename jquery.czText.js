@@ -31,10 +31,11 @@
             words = this.html.trim().split(' ');
             var index = 0;
             if(words[index].indexOf('<') === 0){
+                var tagName = words[0].substr(1);
                 this.html = '';
                 for (index; index < words.length; index++) {
                     this.html = this.html + ' ' + words[index];
-                    if(words[index].indexOf('</') !== -1) break;
+                    if(words[index].indexOf('</'+tagName) !== -1) break;
                 }
                 this.element.html(this.html);
             }else{
